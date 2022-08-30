@@ -8,6 +8,7 @@ import random
 
 difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
 board = []
+grid_size = 0
 
 
 def difficulty():
@@ -29,15 +30,18 @@ def create_board(board):
     """
     grid_size = difficulty_level[difficulty()][0]
     for i in range(grid_size):
-        board.append(["0"]*grid_size)
+        board.append(["0"] * grid_size)
     for row in board:
         print((" ").join(row))
 
-def create(ships):
+
+def create_ships():
     """
     This function creates the invading ship dimensions
     """
-    pass
+    ship_length = random.randint(2, grid_size)
+    ship_orientation = random.randint(0, 1)
+
 
 def start_message():
     """
@@ -45,9 +49,11 @@ def start_message():
     """
 
     def continue_key():
-        input("Press any key to continue....")
-        if input != " ":
-            os.system('clear')
+        """
+        This function avoids repeating the below two commands
+        """
+        input("Press RETURN to continue....")
+        os.system('clear')
 
     intro = [
         "Warning!!!",
@@ -89,4 +95,3 @@ def start_message():
     continue_key()
     print("let's go!!!")
 
-start_message()
