@@ -9,6 +9,8 @@ import random
 difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
 board = []
 grid_size = 0
+enemy_ships = []
+shots_fired = 0
 
 def title():
     """
@@ -39,6 +41,9 @@ def continue_key():
             print("Nope, please press 'c' and hit return to continue")
     
 def introduction():
+    """
+    This gives the user a brief background story
+    """
     intro = [
         "\nWarning!!!\n",
         "\nEnemy forces have invaded our waters!!!\n",
@@ -56,6 +61,9 @@ def introduction():
     continue_key()
 
 def instructions():
+    """
+    This functions provides instructions to the user on playing the game
+    """
     instructions_list = [
         "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
         "\n1. Select the grid ROW which will appear as a NUMBER\n",
@@ -115,6 +123,11 @@ def create_ships():
     """
     This function creates the invading ship dimensions
     """
+    if difficulty() == "a":
+        enemy_ships = []
+    if difficulty() == "b":
+        enemy_ships = []
+
     ship_length = random.randint(2, grid_size)
     ship_orientation = random.randint(0, 1)
 
