@@ -48,13 +48,34 @@ def start_message():
     This function welcomes the player and provides instructions on how to play.
     """
 
+    def title():
+        """
+        Reprints the title after each clear screen
+        """
+        print("BATTLESHIP\n")
+        sleep(2)
+
+    def clear_screen():
+        """
+        This function clears the screen based on the users operating system
+        """
+        if os.name == 'posix':
+            os.system("clear")
+        else:
+            os.system("clr")
+
     def continue_key():
         """
         This function avoids repeating the below two commands
         """
-        input("Press RETURN to continue....")
-        os.system('clear')
-
+        continue_pressed = ['c']
+        while True:
+            c_pressed = input("Press 'c' to continue....")
+            if c_pressed.lower() in continue_pressed:
+                return clear_screen()
+            else:
+                print("Please press 'c' to continue")
+    
     intro = [
         "Warning!!!",
         "\nEnemy forces have invaded our waters!!!\n",
@@ -73,25 +94,26 @@ def start_message():
         "\nThe size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
     ]
     
-    print("BATTLESHIP")
-    sleep(3)
-    os.system("clear")
+    title()
 
     for i in intro:
         print(i)
         sleep(3)
 
     continue_key()
-        
+    
+    title()
     print("Here is what you must do to defeat the invaders:")
-    sleep(3)
+    sleep(2)
     
     for j in instructions:
         print(j)
-        sleep(3)
+        sleep(2)
 
 
     print("Are you ready?")
     continue_key()
-    print("let's go!!!")
+    print("LET'S GO!!!")
+    sleep(2)
 
+start_message()
