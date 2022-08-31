@@ -26,6 +26,56 @@ def clear_screen():
     else:
         os.system("clr")
 
+def continue_key():
+    """
+    This function avoids repeating the below two commands
+    """
+    continue_pressed = ['c']
+    while True:
+        c_pressed = input("Press 'c' to and hit return continue....")
+        if c_pressed.lower() in continue_pressed:
+            return clear_screen()
+        else:
+            print("Nope, please press 'c' and hit return to continue")
+    
+def introduction():
+    intro = [
+        "\nWarning!!!\n",
+        "\nEnemy forces have invaded our waters!!!\n",
+        "\nThe enemy forces are equipped with the latest cloaking technology making them invisible to our radars.\n",
+        "\nLuckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.\n",
+        "\nAs the gunnar who has won on more scratch cards than any other you have been chosen to fire blindly into the sea and hopefully destroy the enemy fleet.\n",
+        "\nCongratulations!\n"
+    ]
+    title()
+    print("\nIncoming message from Fleet Command......\n")
+    sleep(4)
+    for i in intro:
+        print(i)
+        sleep(1)
+    continue_key()
+
+def instructions():
+    instructions_list = [
+        "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
+        "\n1. Select the grid ROW which will appear as a NUMBER\n",
+        "\n2. Select the grid COLUMN which will appear as a LETTER\n",
+        "\nIf a ship is within the grid coordinates you selected, a hit will be registered\n",
+        "\nIf the grid is empty, it will be registered as a miss",
+        "\nThe size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
+    ]
+    title()
+    print("Here is what you must do to defeat the invaders:")
+    sleep(4)
+    for i in instructions_list:
+        print(i)
+        sleep(1)
+    sleep(4)
+    print("\nAre you ready? (don't worry we'll show you the instructions again)\n")
+    sleep(4)
+    print("\nLET'S GO!!!\n")
+    continue_key()
+
 def difficulty():
     """
     This function allows the user to select the difficulty level
@@ -160,7 +210,8 @@ def main():
     """
     Run all program functions
     """
-    start_message()
+    introduction()
+    instructions()
     create_board(board)
 
-create_board(board)
+main()
