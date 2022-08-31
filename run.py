@@ -10,12 +10,36 @@ difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
 board = []
 grid_size = 0
 
+def title():
+    """
+    Reprints the title after each clear screen
+    """
+    print("               <====>  BATTLESHIP!  <====>\n")
+    sleep(1)
+
+def clear_screen():
+    """
+    This function clears the screen based on the users operating system
+    """
+    if os.name == "posix":
+        os.system("clear")
+    else:
+        os.system("clr")
 
 def difficulty():
     """
     This function allows the user to select the difficulty level
     """
     difficulty_levels = ["a", "b", "c"]
+    difficulty_explanation = [
+        "\nYou must now select the difficulty level. You have 3 choices:\n",
+        "\nEASY: 6x6 grid with 3 enemies of random size and 20 missiles\n",
+        "\nMEDIUM: 8x8 grid with 4 enemies of random size and 36 missiles\n",
+        "\nHARD: 10x10 grid with 1 enemy of 1 square with 50 missiles\n"
+    ]
+    for i in difficulty_explanation:
+        print(i)
+        sleep(1)
     while True:
         select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
@@ -29,6 +53,8 @@ def create_board(board):
     Creates the board with the grid-size determined by the difficulty level
     """
     grid_size = difficulty_level[difficulty()][0]
+    clear_screen()
+    title()
     for i in range(grid_size):
         board.append(["0"] * grid_size)
     for row in board:
@@ -137,3 +163,4 @@ def main():
     start_message()
     create_board(board)
 
+create_board(board)
