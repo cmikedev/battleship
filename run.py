@@ -22,7 +22,7 @@ def difficulty():
             return select_difficulty
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b' or 'c'")
-
+        
 
 def create_board(board):
     """
@@ -52,14 +52,14 @@ def start_message():
         """
         Reprints the title after each clear screen
         """
-        print("BATTLESHIP\n")
+        print("               <====>  BATTLESHIP!  <====>\n")
         sleep(2)
 
     def clear_screen():
         """
         This function clears the screen based on the users operating system
         """
-        if os.name == 'posix':
+        if os.name == "posix":
             os.system("clear")
         else:
             os.system("clr")
@@ -70,11 +70,11 @@ def start_message():
         """
         continue_pressed = ['c']
         while True:
-            c_pressed = input("Press 'c' to continue....")
+            c_pressed = input("Press 'c' to and hit return continue....")
             if c_pressed.lower() in continue_pressed:
                 return clear_screen()
             else:
-                print("Please press 'c' to continue")
+                print("Nope, please press 'c' and hit return to continue")
     
     intro = [
         "Warning!!!",
@@ -93,12 +93,19 @@ def start_message():
         "\nIf the grid is empty, it will be registered as a miss",
         "\nThe size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
     ]
+
+    difficulty_explanation = [
+        "\nYou must now select the difficulty level. You have 3 choices:\n",
+        "\nEASY: 6x6 grid with 3 enemies of random size and 20 missiles\n",
+        "\nMEDIUM: 8x8 grid with 4 enemies of random size and 36 missiles\n",
+        "\nHARD: 10x10 grid with 1 enemy of 1 square with 50 missiles\n"
+    ]
     
     title()
 
     for i in intro:
         print(i)
-        sleep(3)
+        sleep(2)
 
     continue_key()
     
@@ -111,9 +118,20 @@ def start_message():
         sleep(2)
 
 
-    print("Are you ready?")
+    print("\nAre you ready?\n")
+    print("\nLET'S GO!!!\n")
     continue_key()
-    print("LET'S GO!!!")
-    sleep(2)
+    
+    title()
+    for k in difficulty_explanation:
+        print(k)
+        sleep(1)
+    difficulty()
 
-start_message()
+    continue_key()
+
+
+def main():
+    """
+    Run all program functions
+    """
