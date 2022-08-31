@@ -7,9 +7,11 @@ from time import sleep
 import random
 
 difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
+difficulty_chosen = []
 board = []
-grid_size = 0
 enemy_ships = []
+player_guesses = []
+grid_size = 0
 shots_fired = 0
 
 def title():
@@ -101,6 +103,7 @@ def difficulty():
     while True:
         select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
+            difficulty_chosen.append(select_difficulty)
             return select_difficulty
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b' or 'c'")
@@ -113,23 +116,29 @@ def create_board(board):
     grid_size = difficulty_level[difficulty()][0]
     clear_screen()
     title()
+    print("      A  B  C  D  E  F")
+    print("      ________________")
     for i in range(grid_size):
         board.append(["0"] * grid_size)
+    row_number = 1
     for row in board:
-        print((" ").join(row))
+        #print((" ").join(row))
+        print("%d|%s|" % (row_number, "|".join(row)))
+        row_number += 1
 
 
 def create_ships():
     """
     This function creates the invading ship dimensions
     """
-    if difficulty() == "a":
-        enemy_ships = []
-    if difficulty() == "b":
-        enemy_ships = []
-
-    ship_length = random.randint(2, grid_size)
-    ship_orientation = random.randint(0, 1)
+    if difficulty_chosen == "a":
+        enemy_ships = [[[2,2],[2,3],[2,4]],[4,4],[[5,5],[4,5],[3,5],[2,5]]]
+    if difficulty_chosen == "b":
+        enemy_ships = [[[7,5],[6,5],[5,5]],[[2,1],[2,2]],[[6,1],[6,2],[6,3],[6,4]],[7,7]]
+    if difficulty_chosen == "c":
+        ship_length = random.randint(2, grid_size)
+        ship_orientation = random.randint(0, 1)
+        enemy_ships = [ship_length, ship_orientation]
 
 
 def start_message():
@@ -223,8 +232,8 @@ def main():
     """
     Run all program functions
     """
-    introduction()
-    instructions()
     create_board(board)
+    create_ships()
+    print(difficulty_chosen)
 
-main()
+create_board(board)
