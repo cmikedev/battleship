@@ -17,7 +17,7 @@ def difficulty():
     """
     difficulty_levels = ["a", "b", "c"]
     while True:
-        select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n a: Easy \n b: Medium \n c: Hard \n")
+        select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
             return select_difficulty
         else:
@@ -126,7 +126,6 @@ def start_message():
     for k in difficulty_explanation:
         print(k)
         sleep(1)
-    difficulty()
 
     continue_key()
 
@@ -135,3 +134,6 @@ def main():
     """
     Run all program functions
     """
+    start_message()
+    create_board(board)
+
