@@ -6,7 +6,7 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a": [6, 4, 36], "b": [8, 6, 36], "c": [9, 8, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a": [6, 4, 20], "b": [8, 6, 36], "c": [9, 8, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -21,7 +21,7 @@ def title():
     Reprints the title after each clear screen
     """
 
-    print("               <====>  BATTLESHIP!  <====>\n")
+    print("<====>  BATTLESHIP!  <====>\n")
     sleep(1)
 
 def clear_screen():
@@ -243,12 +243,12 @@ def play_game():
         elif enemy_board[row][column] == "X":
             print("<====>  DIRECT HIT!  <====>\n")
             print("You hit one of their battleships!")
+            print(f"There are {str(ship_hits(player_guess_board) - invaders)} remaining")
             sleep(3)
             player_guess_board[row][column] = "X"
             missiles -= 1
         else:
             print("You missed!")
-            print(f"You have {str(missiles)} missiles remaining!")
             sleep(3)
             player_guess_board[row][column] = "-"
             missiles -= 1
@@ -258,7 +258,7 @@ def play_game():
         if missiles == 0:
             print("Missiles out! We're defenceless!")
             print("")
-            print("             <====>  GAME OVER!  <====>\n")
+            print("      <====>  GAME OVER!  <====>\n")
             break
     
 
