@@ -9,7 +9,7 @@ import random
 difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
-difficulty_chosen = ""
+#difficulty_chosen = ""
 board = []
 enemy_ships = []
 player_guesses = []
@@ -92,6 +92,7 @@ def difficulty():
     """
     This function allows the user to select the difficulty level
     """
+    global difficulty_chosen
     difficulty_levels = ["a", "b", "c"]
     difficulty_explanation = [
         "\nYou must now select the difficulty level. You have 3 choices:\n",
@@ -106,7 +107,8 @@ def difficulty():
         select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
-            return select_difficulty
+            #return select_difficulty
+            return difficulty_chosen
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b' or 'c'")
         
@@ -115,7 +117,8 @@ def create_board(board):
     """
     Creates the board with the grid-size determined by the difficulty level
     """
-    grid_size = difficulty_level[difficulty()][0]
+    #grid_size = difficulty_level[difficulty()][0]
+    grid_size = difficulty_level[difficulty_chosen][0]
     clear_screen()
     title()
 
@@ -131,7 +134,7 @@ def create_board(board):
     row_number = 1
     for row in board:
         #print((" ").join(row))
-        print("%d|%s|" % (row_number, "|".join(row)))
+        print("%d|%s|" % (row_number, " | ".join(row)))
         row_number += 1
 
 
@@ -244,4 +247,5 @@ def main():
     create_ships()
     print(difficulty_chosen)
 
+difficulty()
 create_board(board)
