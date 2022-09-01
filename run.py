@@ -6,7 +6,7 @@ import os
 from time import sleep
 import random
 
-difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
+difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [9, 40]}
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 #difficulty_chosen = ""
@@ -118,25 +118,32 @@ def create_board(board):
     Creates the board with the grid-size determined by the difficulty level
     """
     #grid_size = difficulty_level[difficulty()][0]
-    grid_size = difficulty_level[difficulty_chosen][0]
+    #grid_size = difficulty_level[difficulty_chosen][0]
+    grid_size = 9
     clear_screen()
     title()
 
-    header = ["         "]
+    header = ["   "]
     for i in range(grid_size):
         header.append(letters_used[i] + "  ")
     print(*header)
 
     #print("      A  B  C  D  E  F")
-    print("      ________________")
+    if grid_size == 6:
+        print("  " + ("_" * 25))
+    elif grid_size == 8:
+        print("  " + ("_" * 32))
+    else:
+        print("  " + ("_" * 37))
+
     for i in range(grid_size):
         board.append(["0"] * grid_size)
     row_number = 1
     for row in board:
         #print((" ").join(row))
-        print("%d|%s|" % (row_number, " | ".join(row)))
+        print("%d | %s |" % (row_number, " | ".join(row)))
         row_number += 1
-
+    print("")
 
 def create_ships():
     """
@@ -247,5 +254,5 @@ def main():
     create_ships()
     print(difficulty_chosen)
 
-difficulty()
+
 create_board(board)
