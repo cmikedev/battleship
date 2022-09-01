@@ -11,7 +11,7 @@ letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
 # Testing variables
-difficulty_chosen = "a"
+#difficulty_chosen = "a"
 #grid_size = 6
 
 board = []
@@ -99,6 +99,7 @@ def difficulty():
     This function allows the user to select the difficulty level
     """
     global difficulty_chosen
+    global grid_size
     difficulty_levels = ["a", "b", "c"]
     difficulty_explanation = [
         "\nYou must now select the difficulty level. You have 3 choices:\n",
@@ -113,6 +114,7 @@ def difficulty():
         select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
+            grid_size = difficulty_level[difficulty_chosen][0]
             #return select_difficulty
             return difficulty_chosen
         else:
@@ -124,9 +126,9 @@ def create_board(board):
     Creates the board with the grid-size determined by the difficulty level
     """
 
-    global grid_size
+    #global grid_size
     #grid_size = difficulty_level[difficulty()][0]
-    grid_size = difficulty_level[difficulty_chosen][0]
+    #grid_size = difficulty_level[difficulty_chosen][0]
     #grid_size = 9
     clear_screen()
     title()
@@ -144,8 +146,8 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
-    for i in range(grid_size):
-        board.append([" "] * grid_size)
+    #for i in range(grid_size):
+        #board.append([" "] * grid_size)
     row_number = 1
     for row in board:
         #print((" ").join(row))
@@ -162,9 +164,9 @@ def create_ships(board):
 
     num_enemy_ships = difficulty_level[difficulty_chosen][0]
     for ship in range(num_enemy_ships):
-        ship_row, ship_column = randint(0, grid_size), randint(0, grid_size)
+        ship_row, ship_column = randint(0, grid_size + 1), randint(0, grid_size + 1)
     while board[ship_row][ship_column] == "X":
-        ship_row, ship_column = randint(0, grid_size), randint(0, grid_size)
+        ship_row, ship_column = randint(0, grid_size + 1), randint(0, grid_size + 1)
     board[ship_row][ship_column] = "X"
 
     #ship_length = random.randint(2, grid_size)
@@ -175,9 +177,9 @@ def ship_location():
     This function creates the location of the enemy ships
     """
 
-    rows = [i + 1 for i in range(0, grid_size)]
+    rows = [i + 1 for i in range(0, grid_size + 1)]
     rows_string = "".join(map(str, rows))
-    columns = letters_used[0: grid_size]
+    columns = letters_used[0: grid_size + 1]
     columns_string = "".join(map(str, columns))
 
     
@@ -196,7 +198,7 @@ def ship_location():
             print("Please enter a valid column")
     
         
-    return int(row_choice), letters_legend[column_choice]
+    return int(row_choice) - 1, letters_legend[column_choice]
 
 
 def ship_hits(board):
@@ -217,14 +219,14 @@ def play_game():
     global player_guess_board
     global missiles
 
-    enemy_board = [[" "] * 8 for x in range(grid_size)]
-    player_guess_board = [[" "] * 8 for x in range(grid_size)]
+    enemy_board = [[" "] * grid_size for x in range(grid_size)]
+    player_guess_board = [[" "] * grid_size for x in range(grid_size)]
     missiles = difficulty_level[difficulty_chosen][2]
 
     create_ships(enemy_board)
     while missiles > 0:
         create_board(player_guess_board)
-        row, column = ship_location():
+        row, column = ship_location()
         if player_guess_board[row][column] == "-":
             print("You already hit that empty piece of water!")
         elif enemy_board[row][column] == "X":
@@ -250,8 +252,11 @@ def main():
     """
     Run all program functions
     """
-    
 
+    difficulty()
+    play_game()
+    
+main()
 
 
 
