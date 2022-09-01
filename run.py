@@ -105,12 +105,11 @@ def difficulty():
     
     difficulty_levels = ["a", "b", "c"]
     difficulty_explanation = [
-        "\nYou must now select the difficulty level. You have 3 choices:\n",
         "\nEASY: 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
         "\nMEDIUM: 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
         "\nHARD: 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
     ]
-    print(difficulty_explanation[0])
+    print("\nYou must now select the difficulty level. You have 3 choices:\n")
     sleep(2)
     for i in difficulty_explanation:
         print(i)
