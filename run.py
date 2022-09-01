@@ -8,7 +8,8 @@ import random
 
 difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [10, 45]}
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
-difficulty_chosen = []
+letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
+difficulty_chosen = ""
 board = []
 enemy_ships = []
 player_guesses = []
@@ -104,7 +105,7 @@ def difficulty():
     while True:
         select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
         if select_difficulty.lower() in difficulty_levels:
-            difficulty_chosen.append(select_difficulty)
+            difficulty_chosen = select_difficulty
             return select_difficulty
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b' or 'c'")
@@ -117,7 +118,13 @@ def create_board(board):
     grid_size = difficulty_level[difficulty()][0]
     clear_screen()
     title()
-    print("      A  B  C  D  E  F")
+
+    header = ["         "]
+    for i in range(grid_size):
+        header.append(letters_used[i] + "  ")
+    print(*header)
+
+    #print("      A  B  C  D  E  F")
     print("      ________________")
     for i in range(grid_size):
         board.append(["0"] * grid_size)
