@@ -4,16 +4,15 @@
 
 import os
 from time import sleep
-import random
+from random import randint
 
-difficulty_level = {"a": [6, 20], "b": [8, 36], "c": [9, 40]}
+difficulty_level = {"a": [6, 4, 20], "b": [8, 8, 36], "c": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 #difficulty_chosen = ""
 board = []
 enemy_ships = []
 player_guesses = []
-grid_size = 0
 shots_fired = 0
 
 def title():
@@ -117,9 +116,10 @@ def create_board(board):
     """
     Creates the board with the grid-size determined by the difficulty level
     """
+    global grid_size
     #grid_size = difficulty_level[difficulty()][0]
-    #grid_size = difficulty_level[difficulty_chosen][0]
-    grid_size = 9
+    grid_size = difficulty_level[difficulty_chosen][0]
+    #grid_size = 9
     clear_screen()
     title()
 
@@ -145,18 +145,19 @@ def create_board(board):
         row_number += 1
     print("")
 
-def create_ships():
+def create_ships(board):
     """
     This function creates the invading ship dimensions
     """
-    if difficulty_chosen == "a":
-        enemy_ships = [[[2,2],[2,3],[2,4]],[4,4],[[5,5],[4,5],[3,5],[2,5]]]
-    if difficulty_chosen == "b":
-        enemy_ships = [[[7,5],[6,5],[5,5]],[[2,1],[2,2]],[[6,1],[6,2],[6,3],[6,4]],[7,7]]
-    if difficulty_chosen == "c":
-        ship_length = random.randint(2, grid_size)
-        ship_orientation = random.randint(0, 1)
-        enemy_ships = [ship_length, ship_orientation]
+    num_enemy_ships = difficulty_level[difficulty_chosen][0]
+    for ship in range(num_enemy_ships):
+        ship_row, ship_column = randint(0, grid_size), randint(0, grid_size)
+    while board[ship_row][ship_column] == "X":
+        ship_row, ship_column = randint(0, grid_size), randint(0, grid_size)
+    board[ship_row][ship_column] = "X"
+
+    #ship_length = random.randint(2, grid_size)
+    #ship_orientation = random.randint(0, 1)
 
 
 def start_message():
