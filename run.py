@@ -10,6 +10,7 @@ difficulty_level = {"a": [6, 4, 20], "b": [8, 8, 36], "c": [9, 12, 40]} # key = 
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 #difficulty_chosen = ""
+grid_size = 6
 board = []
 enemy_ships = []
 player_guesses = []
@@ -159,6 +160,37 @@ def create_ships(board):
     #ship_length = random.randint(2, grid_size)
     #ship_orientation = random.randint(0, 1)
 
+def ship_location():
+    """
+    This function creates the location of the enemy ships
+    """
+    row_location = ""
+    column_location = ""
+  
+  
+    rows = [i + 1 for i in range(0, grid_size)]
+    rows_string = "".join(map(str, rows))
+    columns = letters_used[0: grid_size]
+    columns_string = "".join(map(str, columns))
+
+    
+    while True:
+        row_choice = input(f"Please enter a ship row 1-{grid_size}: ")
+        if row_choice in rows_string:
+            break
+        else:
+            print("Please enter a valid row")
+        
+    while True:
+        column_choice = input(f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper()
+        if column_choice in columns_string:
+            break
+        else:
+            print("Please enter a valid column")
+    
+        
+    return int(row_choice), letters_legend[column_choice]
+
 
 def start_message():
     """
@@ -256,4 +288,4 @@ def main():
     print(difficulty_chosen)
 
 
-create_board(board)
+print(ship_location())
