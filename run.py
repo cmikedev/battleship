@@ -9,17 +9,19 @@ from random import randint
 difficulty_level = {"a": [6, 4, 20], "b": [8, 8, 36], "c": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
-#difficulty_chosen = ""
-grid_size = 6
+
+# Testing variables
+difficulty_chosen = "a"
+#grid_size = 6
+
 board = []
-enemy_ships = []
-player_guesses = []
 shots_fired = 0
 
 def title():
     """
     Reprints the title after each clear screen
     """
+
     print("               <====>  BATTLESHIP!  <====>\n")
     sleep(1)
 
@@ -27,6 +29,7 @@ def clear_screen():
     """
     This function clears the screen based on the users operating system
     """
+
     if os.name == "posix":
         os.system("clear")
     else:
@@ -36,6 +39,7 @@ def continue_key():
     """
     This function avoids repeating the below two commands
     """
+
     continue_pressed = ['c']
     while True:
         c_pressed = input("Press 'c' to and hit return continue....")
@@ -48,6 +52,7 @@ def introduction():
     """
     This gives the user a brief background story
     """
+
     intro = [
         "\nWarning!!!\n",
         "\nEnemy forces have invaded our waters!!!\n",
@@ -68,6 +73,7 @@ def instructions():
     """
     This functions provides instructions to the user on playing the game
     """
+
     instructions_list = [
         "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
         "\n1. Select the grid ROW which will appear as a NUMBER\n",
@@ -117,6 +123,7 @@ def create_board(board):
     """
     Creates the board with the grid-size determined by the difficulty level
     """
+
     global grid_size
     #grid_size = difficulty_level[difficulty()][0]
     grid_size = difficulty_level[difficulty_chosen][0]
@@ -138,7 +145,7 @@ def create_board(board):
         print("  " + ("_" * 37))
 
     for i in range(grid_size):
-        board.append(["0"] * grid_size)
+        board.append([" "] * grid_size)
     row_number = 1
     for row in board:
         #print((" ").join(row))
@@ -150,6 +157,9 @@ def create_ships(board):
     """
     This function creates the invading ship dimensions
     """
+
+    global num_enemy_ships
+
     num_enemy_ships = difficulty_level[difficulty_chosen][0]
     for ship in range(num_enemy_ships):
         ship_row, ship_column = randint(0, grid_size), randint(0, grid_size)
@@ -164,10 +174,7 @@ def ship_location():
     """
     This function creates the location of the enemy ships
     """
-    row_location = ""
-    column_location = ""
-  
-  
+
     rows = [i + 1 for i in range(0, grid_size)]
     rows_string = "".join(map(str, rows))
     columns = letters_used[0: grid_size]
@@ -192,100 +199,59 @@ def ship_location():
     return int(row_choice), letters_legend[column_choice]
 
 
-def start_message():
+def ship_hits(board):
     """
-    This function welcomes the player and provides instructions on how to play.
+    This counts the number of ships that were hit
     """
 
-    def title():
-        """
-        Reprints the title after each clear screen
-        """
-        print("               <====>  BATTLESHIP!  <====>\n")
-        sleep(2)
+    hits = 0
+    for row in board:
+        for column in row:
+            if column == "X":
+                hits += 1
+    return hits
 
-    def clear_screen():
-        """
-        This function clears the screen based on the users operating system
-        """
-        if os.name == "posix":
-            os.system("clear")
+
+def play_game():
+    global enemy_ship_board
+    global player_guess_board
+    global missiles
+
+    enemy_board = [[" "] * 8 for x in range(grid_size)]
+    player_guess_board = [[" "] * 8 for x in range(grid_size)]
+    missiles = difficulty_level[difficulty_chosen][2]
+
+    create_ships(enemy_board)
+    while missiles > 0:
+        create_board(player_guess_board)
+        row, column = ship_location():
+        if player_guess_board[row][column] == "-":
+            print("You already hit that empty piece of water!")
+        elif enemy_board[row][column] == "X":
+            print("DIRECT HIT!!! You hit one of their battleships!")
+            player_guess_board[row][column] = "X"
+            missiles -= 1
         else:
-            os.system("clr")
-
-    def continue_key():
-        """
-        This function avoids repeating the below two commands
-        """
-        continue_pressed = ['c']
-        while True:
-            c_pressed = input("Press 'c' to and hit return continue....")
-            if c_pressed.lower() in continue_pressed:
-                return clear_screen()
-            else:
-                print("Nope, please press 'c' and hit return to continue")
+            print("You missed!")
+            player_guess_board[row][column] = "-"
+            missiles -= 1
+        if ship_hits(player_guess_board) == num_enemy_ships:
+            print("Victory! You have sunk the invading fleet!")
+            break
+        print(f"You have {str(missiles)} missiles left")
+        if missiles == 0:
+            print("Missiles out! We're defenceless!")
+            print("GAME OVER")
+            break
     
-    intro = [
-        "Warning!!!",
-        "\nEnemy forces have invaded our waters!!!\n",
-        "\nThe enemy forces are equipped with the latest cloaking technology making them invisible to our radars.\n",
-        "\nLuckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.\n",
-        "\nAs the gunnar who has won on more scratch cards than any other you have been chosen to fire blindly into the sea and hopefully destroy the enemy fleet.\n",
-        "\nCongratulations!\n"
-    ]
-    
-    instructions = [
-        "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
-        "\n1. Select the grid ROW which will appear as a NUMBER\n",
-        "\n2. Select the grid COLUMN which will appear as a LETTER\n",
-        "\nIf a ship is within the grid coordinates you selected, a hit will be registered\n",
-        "\nIf the grid is empty, it will be registered as a miss",
-        "\nThe size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
-    ]
-
-    difficulty_explanation = [
-        "\nYou must now select the difficulty level. You have 3 choices:\n",
-        "\nEASY: 6x6 grid with 3 enemies of random size and 20 missiles\n",
-        "\nMEDIUM: 8x8 grid with 4 enemies of random size and 36 missiles\n",
-        "\nHARD: 10x10 grid with 1 enemy of 1 square with 50 missiles\n"
-    ]
-    
-    title()
-
-    for i in intro:
-        print(i)
-        sleep(2)
-
-    continue_key()
-    
-    title()
-    print("Here is what you must do to defeat the invaders:")
-    sleep(2)
-    
-    for j in instructions:
-        print(j)
-        sleep(2)
-
-
-    print("\nAre you ready?\n")
-    print("\nLET'S GO!!!\n")
-    continue_key()
-    
-    title()
-    for k in difficulty_explanation:
-        print(k)
-        sleep(1)
-
-    continue_key()
 
 
 def main():
     """
     Run all program functions
     """
-    create_board(board)
-    create_ships()
-    print(difficulty_chosen)
+    
 
 
-print(ship_location())
+
+
