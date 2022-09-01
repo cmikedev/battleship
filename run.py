@@ -100,6 +100,9 @@ def difficulty():
     """
     global difficulty_chosen
     global grid_size
+    global missiles
+
+    
     difficulty_levels = ["a", "b", "c"]
     difficulty_explanation = [
         "\nYou must now select the difficulty level. You have 3 choices:\n",
@@ -115,6 +118,7 @@ def difficulty():
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
             grid_size = difficulty_level[difficulty_chosen][0]
+            missiles = difficulty_level[difficulty_chosen][2]
             #return select_difficulty
             return difficulty_chosen
         else:
@@ -136,6 +140,8 @@ def create_board(board):
     header = ["   "]
     for i in range(grid_size):
         header.append(letters_used[i] + "  ")
+    print(f"Missiles Remaining: {str(missiles)}")
+    print("")
     print(*header)
 
     #print("      A  B  C  D  E  F")
@@ -221,8 +227,9 @@ def play_game():
 
     enemy_board = [[" "] * grid_size for x in range(grid_size)]
     player_guess_board = [[" "] * grid_size for x in range(grid_size)]
-    missiles = difficulty_level[difficulty_chosen][2]
+    
 
+    
     create_ships(enemy_board)
     while missiles > 0:
         create_board(player_guess_board)
