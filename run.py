@@ -49,9 +49,9 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!\n",
-        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars.\n",
-        "Luckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.\n",
-        "As the gunnar who has won on more scratch cards than any other you have been \nchosen to fire blindly into the sea and hopefully destroy the enemy fleet.\n",
+        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars.",
+        "Luckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.",
+        "As the gunnar who has won on more scratch cards than any other you have been \nchosen to fire blindly into the sea and hopefully destroy the enemy fleet.",
         "\nCongratulations!\n"
     ]
     title()
@@ -67,12 +67,12 @@ def instructions():
     """
 
     instructions_list = [
-        "You must input two coordinates, a number and a letter in order to select the \ngrid you want to fire upon",
-        "1. Select the grid ROW which will appear as a NUMBER",
-        "2. Select the grid COLUMN which will appear as a LETTER",
-        "* If a ship is within the grid coordinates you selected, a hit will be \nregistered",
+        "You must input two coordinates, a number and a letter in order to select the \ngrid you want to fire upon:",
+        "\n1. Select the grid ROW which will appear as a NUMBER",
+        "2. Select the grid COLUMN which will appear as a LETTER\n",
+        "* If a ship is within the grid coordinates you selected, a hit will be \n  registered",
         "* If the grid is empty, it will be registered as a miss",
-        "* The size of the grid and the amount of shells you have will be determined by \nthe difficulty level you choose"
+        "* The size of the grid and the amount of shells you have will be determined by \n  the difficulty level you choose"
     ]
     title()
     print("Here is what you must do to defeat the invaders:")
@@ -82,7 +82,7 @@ def instructions():
         print(i)
     print(line_break)
     sleep(2)
-    print("\nAre you ready? (don't worry we'll show you the instructions again)\n")
+    print("Are you ready? (don't worry we'll show you the instructions again)\n")
     continue_key()
 
 def difficulty():
