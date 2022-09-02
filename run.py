@@ -6,23 +6,17 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a":[4, 15, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a":[4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 line_break = "\n" + str("-" * 80) + "\n"
 enemy_ships = 0
 
-# Testing variables
-#difficulty_chosen = "a"
-#grid_size = 6
-
-#board = []
 
 def title():
     """
     Reprints the title after each clear screen
     """
-
     print("<====>  BATTLESHIP!  <====>\n")
     sleep(1)
 
@@ -30,7 +24,6 @@ def clear_screen():
     """
     This function clears the screen based on the users operating system
     """
-
     if os.name == "posix":
         os.system("clear")
     else:
@@ -40,7 +33,6 @@ def continue_key():
     """
     This function avoids repeating the below two commands
     """
-
     continue_pressed = ['c']
     while True:
         c_pressed = input("Press 'c' to and hit return continue....")
@@ -103,7 +95,6 @@ def difficulty():
     global invaders
     global missiles
 
-    
     difficulty_levels = ["a", "b", "c", "d"]
     difficulty_explanation = [
         "\n** EASY **:\nA 6x6 grid with 2 enemy ships. You will have 12 missiles to defeat them\n",
@@ -126,22 +117,14 @@ def difficulty():
             grid_size = difficulty_level[difficulty_chosen][0]
             invaders = difficulty_level[difficulty_chosen][1]
             missiles = difficulty_level[difficulty_chosen][2]
-            #return select_difficulty
             return difficulty_chosen
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b', 'c' or 'd'")
         
-
 def create_board(board):
     """
     Creates the board with the grid-size determined by the difficulty level
     """
-
-    #global enemy_ships
-    #global grid_size
-    #grid_size = difficulty_level[difficulty()][0]
-    #grid_size = difficulty_level[difficulty_chosen][0]
-    #grid_size = 9
     clear_screen()
     title()
 
@@ -152,11 +135,9 @@ def create_board(board):
     print("1. Select the grid ROW which will appear as a NUMBER")
     print("\n2. Select the grid COLUMN which will appear as a LETTER\n")
     print("")
-    #print(f"Missiles Remaining: {str(missiles)}")
     print("")
     print(*header)
 
-    #print("      A  B  C  D  E  F")
     if grid_size == 4:
         print("  " + ("_" * 17))
     elif grid_size == 6:
@@ -166,11 +147,8 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
-    #for i in range(grid_size):
-        #board.append([" "] * grid_size)
     row_number = 1
     for row in board:
-        #print((" ").join(row))
         print("%d | %s |" % (row_number, " | ".join(row)))
         row_number += 1
     print("")
@@ -183,30 +161,21 @@ def create_ships(board):
     """
     This function creates the invading ship dimensions
     """
-
-    #global num_enemy_ships
-
-    #num_enemy_ships = difficulty_level[difficulty_chosen][0]
     for ship in range(invaders):
         ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size -1)
         while board[ship_row][ship_column] == "X":
             ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size - 1)
         board[ship_row][ship_column] = "X"
 
-    #ship_length = random.randint(2, grid_size)
-    #ship_orientation = random.randint(0, 1)
-
 def ship_location():
     """
     This function creates the location of the enemy ships
     """
-
     rows = [i + 1 for i in range(0, grid_size + 1)]
     rows_string = "".join(map(str, rows))
     columns = letters_used[0: grid_size + 1]
     columns_string = "".join(map(str, columns))
 
-    
     while True:
         row_choice = input(f"Please enter a ship row 1-{grid_size}: ")
         if row_choice in rows_string:
@@ -221,15 +190,12 @@ def ship_location():
         else:
             print("Please enter a valid column")
     
-        
     return int(row_choice) - 1, letters_legend[column_choice]
-
 
 def ship_hits(board):
     """
     This counts the number of ships that were hit
     """
-
     hits = 0
     for row in board:
         for column in row:
@@ -237,8 +203,10 @@ def ship_hits(board):
                 hits += 1
     return hits
 
-
 def play_game():
+    """
+    This runs the game logic
+    """
     global enemy_ship_board
     global player_guess_board
     global missiles
@@ -246,7 +214,6 @@ def play_game():
 
     enemy_board = [[" "] * grid_size for i in range(grid_size)]
     player_guess_board = [[" "] * grid_size for j in range(grid_size)]
-
     
     create_ships(enemy_board)
     while missiles > 0:
@@ -274,17 +241,15 @@ def play_game():
             break
         if missiles == 0:
             print("\nMissiles out! We're defenceless!\n")
-            print("\n      <====>  GAME OVER!  <====>\n")
+            print("\n<====>  GAME OVER!  <====>\n")
             break
     
-
-
 def main():
     """
     Run all program functions
     """
-    #introduction()
-    #instructions()
+    introduction()
+    instructions()
     difficulty()
     play_game()
     
