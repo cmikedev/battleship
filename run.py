@@ -49,14 +49,12 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!\n",
-        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars.",
-        "Luckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.",
-        "As the gunnar who has won on more scratch cards than any other you have been \nchosen to fire blindly into the sea and hopefully destroy the enemy fleet.",
+        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars. Luckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells. As the gunnar who has won on more scratch cards than any other you have been \nchosen to fire blindly into the sea and hopefully destroy the enemy fleet.",
         "\nCongratulations!\n"
     ]
     title()
     print("\nIncoming message from Fleet Command......\n")
-    sleep(3)
+    sleep(2)
     for i in intro:
         print(i)
     continue_key()
