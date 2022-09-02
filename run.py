@@ -48,18 +48,17 @@ def introduction():
 
     intro = [
         "\nWarning!!!\n",
-        "\nEnemy forces have invaded our waters!!!\n",
-        "\nThe enemy forces are equipped with the latest cloaking technology making them invisible to our radars.\n",
-        "\nLuckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.\n",
-        "\nAs the gunnar who has won on more scratch cards than any other you have been chosen to fire blindly into the sea and hopefully destroy the enemy fleet.\n",
+        "Enemy forces have invaded our waters!!!\n",
+        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars.\n",
+        "Luckily our gunnar engineers are able to draw up grid maps on the fly to assist us in aiming our shells.\n",
+        "As the gunnar who has won on more scratch cards than any other you have been \nchosen to fire blindly into the sea and hopefully destroy the enemy fleet.\n",
         "\nCongratulations!\n"
     ]
     title()
     print("\nIncoming message from Fleet Command......\n")
-    sleep(4)
+    sleep(3)
     for i in intro:
         print(i)
-        sleep(1)
     continue_key()
 
 def instructions():
@@ -68,12 +67,12 @@ def instructions():
     """
 
     instructions_list = [
-        "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
+        "You must input two coordinates, a number and a letter in order to select the \ngrid you want to fire upon",
         "1. Select the grid ROW which will appear as a NUMBER",
-        "\n2. Select the grid COLUMN which will appear as a LETTER",
-        "\n* If a ship is within the grid coordinates you selected, a hit will be registered",
+        "2. Select the grid COLUMN which will appear as a LETTER",
+        "* If a ship is within the grid coordinates you selected, a hit will be \nregistered",
         "* If the grid is empty, it will be registered as a miss",
-        "* The size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
+        "* The size of the grid and the amount of shells you have will be determined by \nthe difficulty level you choose"
     ]
     title()
     print("Here is what you must do to defeat the invaders:")
@@ -97,15 +96,14 @@ def difficulty():
 
     difficulty_levels = ["a", "b", "c", "d"]
     difficulty_explanation = [
-        "\n** EASY **:\nA 6x6 grid with 2 enemy ships. You will have 12 missiles to defeat them\n",
-        "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
-        "\n** HARD **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
-        "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
+        "\n** EASY **:\nA 6x6 grid with 2 enemy ships. You will have 12 missiles to defeat them.",
+        "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them.",
+        "\n** HARD **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them.",
+        "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them."
     ]
     title()
     print("\nNow select your preferred difficulty level. You have 3 choices:\n")
     sleep(2)
-    print(line_break)
     for i in difficulty_explanation:
         print(i)
     print(line_break)
@@ -133,9 +131,7 @@ def create_board(board):
         header.append(letters_used[i] + "  ")
     print("** Instructions **\n")
     print("1. Select the grid ROW which will appear as a NUMBER")
-    print("\n2. Select the grid COLUMN which will appear as a LETTER\n")
-    print("")
-    print("")
+    print("2. Select the grid COLUMN which will appear as a LETTER\n")
     print(*header)
 
     if grid_size == 4:
@@ -153,7 +149,6 @@ def create_board(board):
         row_number += 1
     print("")
     print(f"Enemy Ships Destroyed: {str(enemy_ships)} / {str(invaders)}")
-    print("")
     print(f"Missiles Remaining: {str(missiles)}")
     print("")
 
