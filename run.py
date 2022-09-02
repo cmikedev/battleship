@@ -102,11 +102,10 @@ def difficulty():
         "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them."
     ]
     title()
-    print("\nNow select your preferred difficulty level. You have 3 choices:\n")
+    print("Now select your preferred difficulty level. You have 3 choices:")
     sleep(2)
     for i in difficulty_explanation:
         print(i)
-    print(line_break)
     print("")
     while True:
         select_difficulty = input("Please select difficulty by entering 'a', 'b', 'c' or 'd': \n\n a: Easy \n b: Medium \n c: Hard \n d: Insane \n")
