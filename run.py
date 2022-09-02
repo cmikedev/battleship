@@ -6,7 +6,7 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a": [6, 4, 20], "b": [8, 6, 36], "c": [9, 8, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a": [6, 4, 20], "b": [8, 8, 36], "c": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 
@@ -14,7 +14,7 @@ letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 #difficulty_chosen = "a"
 #grid_size = 6
 
-board = []
+#board = []
 
 def title():
     """
@@ -75,22 +75,21 @@ def instructions():
 
     instructions_list = [
         "\nYou must input two coordinates, a number and a letter in order to select the grid you want to fire upon\n",
-        "\n1. Select the grid ROW which will appear as a NUMBER\n",
-        "\n2. Select the grid COLUMN which will appear as a LETTER\n",
-        "\nIf a ship is within the grid coordinates you selected, a hit will be registered\n",
-        "\nIf the grid is empty, it will be registered as a miss",
-        "\nThe size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
+        "1. Select the grid ROW which will appear as a NUMBER",
+        "\n2. Select the grid COLUMN which will appear as a LETTER",
+        "\n* If a ship is within the grid coordinates you selected, a hit will be registered",
+        "* If the grid is empty, it will be registered as a miss",
+        "* The size of the grid and the amount of shells you have will be determined by the difficulty level you choose\n"
     ]
     title()
     print("Here is what you must do to defeat the invaders:")
     sleep(4)
+    print("\n--------------------------------------------------------------------------------\n")
     for i in instructions_list:
         print(i)
-        sleep(1)
+    print("\n--------------------------------------------------------------------------------\n")
     sleep(4)
     print("\nAre you ready? (don't worry we'll show you the instructions again)\n")
-    sleep(4)
-    print("\nLET'S GO!!!\n")
     continue_key()
 
 def difficulty():
@@ -105,11 +104,12 @@ def difficulty():
     
     difficulty_levels = ["a", "b", "c"]
     difficulty_explanation = [
-        "\nEASY: 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
-        "\nMEDIUM: 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
-        "\nHARD: 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
+        "\n** EASY **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
+        "\n** MEDIUM **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
+        "\n** HARD **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
     ]
-    print("\nYou must now select the difficulty level. You have 3 choices:\n")
+    title()
+    print("\nNow select your preferred difficulty level. You have 3 choices:\n")
     sleep(2)
     for i in difficulty_explanation:
         print(i)
@@ -143,7 +143,11 @@ def create_board(board):
     header = ["   "]
     for i in range(grid_size):
         header.append(letters_used[i] + "  ")
-    print(f"Missiles Remaining: {str(missiles)}")
+    print("** Instructions **")
+    print("1. Select the grid ROW which will appear as a NUMBER")
+    print("\n2. Select the grid COLUMN which will appear as a LETTER\n")
+    print("")
+    #print(f"Missiles Remaining: {str(missiles)}")
     print("")
     print(*header)
 
@@ -163,6 +167,8 @@ def create_board(board):
         print("%d | %s |" % (row_number, " | ".join(row)))
         row_number += 1
     print("")
+    print(f"Missiles Remaining: {str(missiles)}")
+    print("")
 
 def create_ships(board):
     """
@@ -173,9 +179,9 @@ def create_ships(board):
 
     #num_enemy_ships = difficulty_level[difficulty_chosen][0]
     for ship in range(invaders):
-        ship_row, ship_column = randint(0, grid_size + 1), randint(0, grid_size + 1)
+        ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size -1)
         while board[ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0, grid_size + 1), randint(0, grid_size + 1)
+            ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size - 1)
         board[ship_row][ship_column] = "X"
 
     #ship_length = random.randint(2, grid_size)
@@ -238,27 +244,27 @@ def play_game():
         create_board(player_guess_board)
         row, column = ship_location()
         if player_guess_board[row][column] == "-":
-            print("You already hit that empty piece of water!")
+            print("\nYou already hit that empty piece of water!\n")
             sleep(3)
         elif enemy_board[row][column] == "X":
-            print("<====>  DIRECT HIT!  <====>\n")
-            print("You hit one of their battleships!")
-            print(f"There are {str(ship_hits(player_guess_board) - invaders)} remaining")
+            print("\n<====>  DIRECT HIT!  <====>\n")
+            print("\nYou hit one of their battleships!\n")
+            print(f"Enemy ships remaining: {str(invaders - 1 - ship_hits(player_guess_board))}")
             sleep(3)
             player_guess_board[row][column] = "X"
             missiles -= 1
         else:
-            print("You missed!")
+            print("\nYou missed!")
             sleep(3)
             player_guess_board[row][column] = "-"
             missiles -= 1
         if ship_hits(player_guess_board) == invaders:
-            print("Victory! You have sunk the invading fleet!")
+            print("\n<====>  VICTORY!  <====>\n")
+            print("You have sunk the invading fleet!")
             break
         if missiles == 0:
-            print("Missiles out! We're defenceless!")
-            print("")
-            print("      <====>  GAME OVER!  <====>\n")
+            print("\nMissiles out! We're defenceless!\n")
+            print("\n      <====>  GAME OVER!  <====>\n")
             break
     
 
@@ -267,7 +273,8 @@ def main():
     """
     Run all program functions
     """
-
+    #introduction()
+    #instructions()
     difficulty()
     play_game()
     
