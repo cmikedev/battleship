@@ -6,9 +6,10 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a": [6, 4, 20], "b": [8, 8, 36], "c": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a":[4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
+line_break = "\n" + str("-" * 80) + "\n"
 
 # Testing variables
 #difficulty_chosen = "a"
@@ -83,12 +84,12 @@ def instructions():
     ]
     title()
     print("Here is what you must do to defeat the invaders:")
-    sleep(4)
-    print("\n--------------------------------------------------------------------------------\n")
+    sleep(2)
+    print(line_break)
     for i in instructions_list:
         print(i)
-    print("\n--------------------------------------------------------------------------------\n")
-    sleep(4)
+    print(line_break)
+    sleep(2)
     print("\nAre you ready? (don't worry we'll show you the instructions again)\n")
     continue_key()
 
@@ -102,21 +103,23 @@ def difficulty():
     global missiles
 
     
-    difficulty_levels = ["a", "b", "c"]
+    difficulty_levels = ["a", "b", "c", "d"]
     difficulty_explanation = [
-        "\n** EASY **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
-        "\n** MEDIUM **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
-        "\n** HARD **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
+        "\n** EASY **:\nA 6x6 grid with 2 enemy ships. You will have 12 missiles to defeat them\n",
+        "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them\n",
+        "\n** HARD **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them\n",
+        "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them\n"
     ]
     title()
     print("\nNow select your preferred difficulty level. You have 3 choices:\n")
     sleep(2)
+    print(line_break)
     for i in difficulty_explanation:
         print(i)
-    sleep(2)
+    print(line_break)
     print("")
     while True:
-        select_difficulty = input("Please select difficulty by entering 'a', 'b' or 'c': \n\n a: Easy \n b: Medium \n c: Hard \n")
+        select_difficulty = input("Please select difficulty by entering 'a', 'b', 'c' or 'd': \n\n a: Easy \n b: Medium \n c: Hard \n d: Insane \n")
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
             grid_size = difficulty_level[difficulty_chosen][0]
@@ -125,7 +128,7 @@ def difficulty():
             #return select_difficulty
             return difficulty_chosen
         else:
-            print("Invalid choice! Please select the difficulty by entering 'a', 'b' or 'c'")
+            print("Invalid choice! Please select the difficulty by entering 'a', 'b', 'c' or 'd'")
         
 
 def create_board(board):
@@ -152,7 +155,9 @@ def create_board(board):
     print(*header)
 
     #print("      A  B  C  D  E  F")
-    if grid_size == 6:
+    if grid_size == 4:
+        print("  " + ("_" * 17))
+    elif grid_size == 6:
         print("  " + ("_" * 25))
     elif grid_size == 8:
         print("  " + ("_" * 32))
@@ -234,9 +239,8 @@ def play_game():
     global player_guess_board
     global missiles
 
-    enemy_board = [[" "] * grid_size for x in range(grid_size)]
-    player_guess_board = [[" "] * grid_size for x in range(grid_size)]
-    
+    enemy_board = [[" "] * grid_size for i in range(grid_size)]
+    player_guess_board = [[" "] * grid_size for j in range(grid_size)]
 
     
     create_ships(enemy_board)
