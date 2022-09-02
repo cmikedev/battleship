@@ -6,10 +6,11 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a":[4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a":[4, 15, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 line_break = "\n" + str("-" * 80) + "\n"
+enemy_ships = 0
 
 # Testing variables
 #difficulty_chosen = "a"
@@ -136,6 +137,7 @@ def create_board(board):
     Creates the board with the grid-size determined by the difficulty level
     """
 
+    #global enemy_ships
     #global grid_size
     #grid_size = difficulty_level[difficulty()][0]
     #grid_size = difficulty_level[difficulty_chosen][0]
@@ -146,7 +148,7 @@ def create_board(board):
     header = ["   "]
     for i in range(grid_size):
         header.append(letters_used[i] + "  ")
-    print("** Instructions **")
+    print("** Instructions **\n")
     print("1. Select the grid ROW which will appear as a NUMBER")
     print("\n2. Select the grid COLUMN which will appear as a LETTER\n")
     print("")
@@ -171,6 +173,8 @@ def create_board(board):
         #print((" ").join(row))
         print("%d | %s |" % (row_number, " | ".join(row)))
         row_number += 1
+    print("")
+    print(f"Enemy Ships Destroyed: {str(enemy_ships)} / {str(invaders)}")
     print("")
     print(f"Missiles Remaining: {str(missiles)}")
     print("")
@@ -238,6 +242,7 @@ def play_game():
     global enemy_ship_board
     global player_guess_board
     global missiles
+    global enemy_ships
 
     enemy_board = [[" "] * grid_size for i in range(grid_size)]
     player_guess_board = [[" "] * grid_size for j in range(grid_size)]
@@ -257,6 +262,7 @@ def play_game():
             sleep(3)
             player_guess_board[row][column] = "X"
             missiles -= 1
+            enemy_ships += 1
         else:
             print("\nYou missed!")
             sleep(3)
@@ -264,7 +270,7 @@ def play_game():
             missiles -= 1
         if ship_hits(player_guess_board) == invaders:
             print("\n<====>  VICTORY!  <====>\n")
-            print("You have sunk the invading fleet!")
+            print("You have sunk the invading fleet!\n")
             break
         if missiles == 0:
             print("\nMissiles out! We're defenceless!\n")
