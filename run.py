@@ -94,7 +94,7 @@ def difficulty():
 
     difficulty_levels = ["a", "b", "c", "d"]
     difficulty_explanation = [
-        "\n** EASY **:\nA 6x6 grid with 2 enemy ships. You will have 12 missiles to defeat them.",
+        "\n** EASY **:\nA 4x4 grid with 2 enemy ships. You will have 12 missiles to defeat them.",
         "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them.",
         "\n** HARD **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them.",
         "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them."
