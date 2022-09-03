@@ -146,12 +146,15 @@ def create_board(board):
         row_num += 1
     print("")
     print(f"Enemy Ships Destroyed: {str(enemy_ships)} / {str(invaders)}")
-    print(f"Missiles Remaining: {str(missiles)}")
+    if missiles <= 5:
+        print(f"!!LOW AMMO WARNING!! Missiles Remaining: {str(missiles)}")
+    else:
+        print(f"Missiles Remaining: {str(missiles)}")
     print("")
 
 def create_ships(board):
     """
-    This function creates the invading ship dimensions
+    This function creates the invading ship locations
     """
     for ship in range(invaders):
         ship_row = randint(0, grid_size - 1)
@@ -222,7 +225,7 @@ def play_game():
         clear_screen()
         title()
         print("You have sunk the invading fleet!\n")
-        print("\n<====>   VICTORY!    <====>\n")
+        print("\n<====>    VICTORY!   <====>\n")
 
     def second_board(size):
         """
