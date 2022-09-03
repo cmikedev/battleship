@@ -154,7 +154,7 @@ def create_board(board):
 
 def create_ships(board):
     """
-    This function creates the invading ship locations
+    This function creates the invading ships
     """
     for ship in range(invaders):
         ship_row = randint(0, grid_size - 1)
@@ -166,7 +166,7 @@ def create_ships(board):
 
 def ship_location():
     """
-    This function creates the location of the enemy ships
+    This function lets the user input their guess of the enemy ship location
     """
     rows = [i + 1 for i in range(0, grid_size)]
     rows_string = "".join(map(str, rows))
