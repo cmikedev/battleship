@@ -140,10 +140,10 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
-    row_number = 1
+    row_num = 1
     for row in board:
-        print("%d | %s |" % (row_number, " | ".join(row)))
-        row_number += 1
+        print("%d | %s |" % (row_num, " | ".join(row)))
+        row_num += 1
     print("")
     print(f"Enemy Ships Destroyed: {str(enemy_ships)} / {str(invaders)}")
     print(f"Missiles Remaining: {str(missiles)}")
@@ -154,9 +154,11 @@ def create_ships(board):
     This function creates the invading ship dimensions
     """
     for ship in range(invaders):
-        ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size -1)
+        ship_row = randint(0, grid_size - 1)
+        ship_column = randint(0, grid_size - 1)
         while board[ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0, grid_size - 1), randint(0, grid_size - 1)
+            ship_row = randint(0, grid_size - 1)
+            ship_column = randint(0, grid_size - 1)
         board[ship_row][ship_column] = "X"
 
 def ship_location():
@@ -220,7 +222,7 @@ def play_game():
         clear_screen()
         title()
         print("You have sunk the invading fleet!\n")
-        print("\n<====>    VICTORY!   <====>\n")
+        print("\n<====>   VICTORY!    <====>\n")
 
     enemy_board = [[" "] * grid_size for i in range(grid_size)]
     player_guess_board = [[" "] * grid_size for j in range(grid_size)]
