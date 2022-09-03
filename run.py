@@ -224,8 +224,19 @@ def play_game():
         print("You have sunk the invading fleet!\n")
         print("\n<====>   VICTORY!    <====>\n")
 
-    enemy_board = [[" "] * grid_size for i in range(grid_size)]
-    player_guess_board = [[" "] * grid_size for j in range(grid_size)]
+    def second_board(size):
+        """
+        This function is used to create the enemy and player guess boards
+        """
+        board_specs = []
+        for i in range(size):
+            board_specs.append(([" "] * size))
+        return board_specs
+
+    enemy_board = second_board(grid_size)
+    player_guess_board = second_board(grid_size)
+    #enemy_board = [[" "] * grid_size for i in range(grid_size)]
+    #player_guess_board = [[" "] * grid_size for j in range(grid_size)]
     
     create_ships(enemy_board)
     while missiles > 0:
