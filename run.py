@@ -6,7 +6,7 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a":[3, 2, 2], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
+difficulty_level = {"a":[4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
 letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
 line_break = "\n" + str("-" * 80) + "\n"
@@ -260,8 +260,8 @@ def main():
     """
     Run all program functions
     """
-    #introduction()
-    #instructions()
+    introduction()
+    instructions()
     difficulty()
     play_game()
     
