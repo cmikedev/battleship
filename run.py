@@ -136,6 +136,7 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
+    # rows 140 - 143 taken from rows 11 - 14 of gbrough Battleship. See README.md Credits
     row_num = 1
     for row in board:
         print("%d | %s |" % (row_num, " | ".join(row)))
@@ -152,6 +153,7 @@ def create_ships(board):
     """
     This function creates the invading ships
     """
+    # rows 157 - 163 amended from rows 27 - 32 of gbrough Battleship. See README.md Credits
     for ship in range(invaders):
         ship_row = randint(0, grid_size - 1)
         ship_column = randint(0, grid_size - 1)
@@ -189,6 +191,7 @@ def ship_hits(board):
     """
     This counts the number of ships that were hit
     """
+    # rows 195 - 200 taken from rows 46 - 52 of gbrough Battleship. See README.md Credits
     hits = 0
     for row in board:
         for column in row:
@@ -234,7 +237,8 @@ def play_game():
 
     enemy_board = second_board(grid_size)
     player_guess_board = second_board(grid_size)
-    
+
+    # rows 242 - 267 amended from rows 55 - 76 of gbrough Battleship. See README.md Credits
     create_ships(enemy_board)
     while missiles > 0:
         create_board(player_guess_board)
