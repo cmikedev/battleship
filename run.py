@@ -1,7 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
 import os
 from time import sleep
 from random import randint
@@ -238,8 +234,6 @@ def play_game():
 
     enemy_board = second_board(grid_size)
     player_guess_board = second_board(grid_size)
-    #enemy_board = [[" "] * grid_size for i in range(grid_size)]
-    #player_guess_board = [[" "] * grid_size for j in range(grid_size)]
     
     create_ships(enemy_board)
     while missiles > 0:
@@ -262,13 +256,9 @@ def play_game():
             player_guess_board[row][column] = "-"
             missiles -= 1
         if ship_hits(player_guess_board) == invaders:
-            #print("\n<====>  VICTORY!  <====>\n")
-            #print("You have sunk the invading fleet!\n")
             game_won()
             break
         if missiles == 0:
-            #print("\nMissiles out! We're defenceless!\n")
-            #print("\n<====>  GAME OVER!  <====>\n")
             game_lost()
             break
     
