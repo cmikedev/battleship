@@ -19,7 +19,7 @@ https://github.com/cmikedev/battleship
 
 ## Structure
 
-Flow chart:
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)
 
 
 
