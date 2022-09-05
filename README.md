@@ -1,31 +1,70 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship
+Battleship is a python version of the classic turn-based guess game. The intention of this [site](https://battleship-cmikedev.herokuapp.com/) is to provide a player with a simple and intuitive interface. 
 
-Welcome cmikedev,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+____
 
-## Reminders
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+![image]()
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Deployed Website
+[Battleship](https://battleship-cmikedev.herokuapp.com/)
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Repository
+https://github.com/cmikedev/battleship
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Structure
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* 
 
------
-Happy coding!
+
+## Features
+
+* #
+
+
+## Testing
+
+### Responsiveness Testing
+
+* to be included...<br />
+<br />
+
+### Validator Testing
+
+* #### PEP8
+    * HTML
+        * To be included<br />
+        <br />
+
+
+## Deployment
+
+### Deploying the repository via Heroku
+* The website was deployed using Heroku via the following steps:
+    * to be included<br />
+    <br />
+
+
+
+
+## Credits
+
+### Research and Guidance
+* [stackoverflow](https://stackoverflow.com/questions/60405812/can-you-put-a-operator-into-a-list-comprehension) was referenced for guidance on using operators within list comprehension.
+* [stackoverflow](https://stackoverflow.com/questions/68716514/python-sleep-function-not-working-as-expected) was referenced for guidance on the sleep function from the time import.
+* [scaler.com](https://www.scaler.com/topics/how-to-clear-screen-in-python/) provided a solution to the issue of clearing the board depending on whether the user's os was MAC, Windows or Linux.
+* [trinket](https://trinket.io/python/051179b6d3) provided research on simple Battleship game-logic and creating enemy ships.
+* [Austin Montgomery](https://bigmonty12.github.io/battleship) provided examples for creating the board, enemy ships and game logic.
+* [codecademy](https://discuss.codecademy.com/t/excellent-battleship-game-written-in-python/430605) example of a Battleship game using classes.
+* [mailpraveens](https://gist.github.com/mailpraveens/6167921) Battleship game code created from a CodeCademy tutorial.
+* [gbrough](https://github.com/gbrough/battleship/blob/main/single_player.py) provided a solution to the create board problem with the rows numbered and creating the ship locations. Code from gbrough has been referenced in the run.py file.
+
+----
+
+## Acknowledgements
+I would like to thank my course mentor Harry Dhillon for providing guidance on this project as well as Alysha Johnson for providing styling inspiration for the README.
