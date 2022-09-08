@@ -53,13 +53,13 @@ def introduction():
 
     intro = [
         "\nWarning!!!\n",
-        "Enemy forces have invaded our waters!!!/n",
+        "Enemy forces have invaded our waters!!!\n",
         "The enemy forces are equipped with the latest" +
-        "cloaking technology making them invisible to our radars. " +
+        "cloaking technology making them \ninvisible to our radars. " +
         "Luckily our gunnar engineers are able to draw up " +
-        "grid maps on the fly to assist us in aiming our shells. " +
-        "As the gunnar who has won on more scratch cards than any " +
-        "other you have been chosen to fire blindly into the sea " +
+        "grid \nmaps on the fly to assist us in aiming our shells. " +
+        "As the gunnar who has won on \nmore scratch cards than any " +
+        "other you have been chosen to fire blindly into the \nsea " +
         "and hopefully destroy the enemy fleet.",
         "\nCongratulations!\n"
     ]
