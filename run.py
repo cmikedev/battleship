@@ -96,7 +96,7 @@ def instructions():
     print(line_break)
     sleep(2)
     print("Are you ready? (don't worry we'll show " +
-    "you the instructions again)\n")
+          "you the instructions again)\n")
     continue_key()
 
 
@@ -122,15 +122,16 @@ def difficulty():
     ]
     title()
     print("Now select your preferred difficulty level. " +
-    "You have 4 choices:")
+          "You have 4 choices:")
     sleep(2)
     for i in difficulty_explanation:
         print(i)
     print("")
     while True:
-        select_difficulty = input("Please select difficulty by " + 
-        "entering 'a', 'b', 'c' or 'd': \n\n a: Easy \n " +
-        "b: Medium \n c: Hard \n d: Insane \n")
+        select_difficulty = input("Please select difficulty by " +
+                                  "entering 'a', 'b', 'c' or 'd': " +
+                                  "\n\n a: Easy \n " +
+                                  "b: Medium \n c: Hard \n d: Insane \n")
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
             grid_size = difficulty_level[difficulty_chosen][0]
@@ -139,7 +140,7 @@ def difficulty():
             return difficulty_chosen
         else:
             print("Invalid choice! Please select the difficulty " +
-            "by entering 'a', 'b', 'c' or 'd'")
+                  "by entering 'a', 'b', 'c' or 'd'")
 
 
 def create_board(board):
@@ -166,7 +167,7 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
-    # Lines 171 - 175 taken from lines 11 - 14 of gbrough Battleship.
+    # Lines 172 - 175 taken from lines 11 - 14 of gbrough Battleship.
     # See README.md Credits
     row_num = 1
     for row in board:
@@ -185,7 +186,7 @@ def create_ships(board):
     """
     This function creates the invading ships
     """
-    # Lines 190 - 196 amended from lines 27 - 32 of gbrough Battleship.
+    # Lines 191 - 197 amended from lines 27 - 32 of gbrough Battleship.
     # See README.md Credits
     for ship in range(invaders):
         ship_row = randint(0, grid_size - 1)
@@ -228,7 +229,7 @@ def ship_hits(board):
     """
     This counts the number of ships that were hit
     """
-    # lines 233 - 238 taken from lines 46 - 52 of gbrough Battleship.
+    # lines 234 - 239 taken from lines 46 - 52 of gbrough Battleship.
     # See README.md Credits
     hits = 0
     for row in board:
@@ -277,7 +278,7 @@ def play_game():
     enemy_board = second_board(grid_size)
     player_guess_board = second_board(grid_size)
 
-    # Lines 282 - 308 amended from lines 55 - 76 of gbrough Battleship.
+    # Lines 283 - 309 amended from lines 55 - 76 of gbrough Battleship.
     # See README.md Credits
     create_ships(enemy_board)
     while missiles > 0:
