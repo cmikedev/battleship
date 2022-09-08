@@ -3,11 +3,11 @@ from time import sleep
 from random import randint
 
 difficulty_level = {
-    "a": [4, 2, 12], "b": [6, 4, 20], 
+    "a": [4, 2, 12], "b": [6, 4, 20],
     "c": [8, 8, 36], "d": [9, 12, 40]
     }
 letters_legend = {
-    "A": 0, "B": 1, "C": 2, "D": 3, "E": 4, 
+    "A": 0, "B": 1, "C": 2, "D": 3, "E": 4,
     "F": 5, "G": 6, "H": 7, "I": 8, "J": 9
     }
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
@@ -54,10 +54,14 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!\n",
-        "The enemy forces are equipped with the latest cloaking technology making them \n\
-            invisible to our radars. Luckily our gunnar engineers are able to draw up grid \n\
-                maps on the fly to assist us in aiming our shells. As the gunnar who has won on \n\
-                    more scratch cards than any other you have been chosen to fire blindly into \n\
+        "The enemy forces are equipped with the latest \
+            cloaking technology making them \n\
+            invisible to our radars. Luckily our gunnar \
+                engineers are able to draw up grid \n\
+                maps on the fly to assist us in aiming our\
+                     shells. As the gunnar who has won on \n\
+                    more scratch cards than any other you have \
+                        been chosen to fire blindly into \n\
                         the sea and hopefully destroy the enemy fleet.",
         "\nCongratulations!\n"
     ]
@@ -75,12 +79,15 @@ def instructions():
     """
 
     instructions_list = [
-        "You must input two coordinates, a number and a letter in order to select the \ngrid you want to fire upon:",
+        "You must input two coordinates, a number and a letter\
+             in order to select the \ngrid you want to fire upon:",
         "\n1. Select the grid ROW which will appear as a NUMBER",
         "2. Select the grid COLUMN which will appear as a LETTER\n",
-        "* If a ship is within the grid coordinates you selected, a hit will be \n  registered",
+        "* If a ship is within the grid coordinates you selected,\
+             a hit will be \n  registered",
         "* If the grid is empty, it will be registered as a miss",
-        "* The size of the grid and the amount of shells you have will be determined by \n  the difficulty level you choose"
+        "* The size of the grid and the amount of shells you have \
+            will be determined by \n  the difficulty level you choose"
     ]
     title()
     print("Here is what you must do to defeat the invaders:")
@@ -90,7 +97,8 @@ def instructions():
         print(i)
     print(line_break)
     sleep(2)
-    print("Are you ready? (don't worry we'll show you the instructions again)\n")
+    print("Are you ready? (don't worry we'll show \
+        you the instructions again)\n")
     continue_key()
 
 
@@ -105,19 +113,26 @@ def difficulty():
 
     difficulty_levels = ["a", "b", "c", "d"]
     difficulty_explanation = [
-        "\n** EASY **:\nA 4x4 grid with 2 enemy ships. You will have 12 missiles to defeat them.",
-        "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. You will have 20 missiles to defeat them.",
-        "\n** HARD **:\nA 8x8 grid with 8 enemy ships. You will have 36 missiles to defeat them.",
-        "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. You will have 40 missiles to defeat them."
+        "\n** EASY **:\nA 4x4 grid with 2 enemy ships. \
+            You will have 12 missiles to defeat them.",
+        "\n** MEDIUM **:\nA 6x6 grid with 4 enemy ships. \
+            You will have 20 missiles to defeat them.",
+        "\n** HARD **:\nA 8x8 grid with 8 enemy ships. \
+            You will have 36 missiles to defeat them.",
+        "\n** INSANE **:\nA 9x9 grid with 12 enemy ships. \
+            You will have 40 missiles to defeat them."
     ]
     title()
-    print("Now select your preferred difficulty level. You have 4 choices:")
+    print("Now select your preferred difficulty level. \
+        You have 4 choices:")
     sleep(2)
     for i in difficulty_explanation:
         print(i)
     print("")
     while True:
-        select_difficulty = input("Please select difficulty by entering 'a', 'b', 'c' or 'd': \n\n a: Easy \n b: Medium \n c: Hard \n d: Insane \n")
+        select_difficulty = input("Please select difficulty by \
+            entering 'a', 'b', 'c' or 'd': \n\n a: Easy \n \
+                b: Medium \n c: Hard \n d: Insane \n")
         if select_difficulty.lower() in difficulty_levels:
             difficulty_chosen = select_difficulty
             grid_size = difficulty_level[difficulty_chosen][0]
@@ -125,7 +140,8 @@ def difficulty():
             missiles = difficulty_level[difficulty_chosen][2]
             return difficulty_chosen
         else:
-            print("Invalid choice! Please select the difficulty by entering 'a', 'b', 'c' or 'd'")
+            print("Invalid choice! Please select the difficulty \
+                by entering 'a', 'b', 'c' or 'd'")
 
 
 def create_board(board):
@@ -152,7 +168,8 @@ def create_board(board):
     else:
         print("  " + ("_" * 37))
 
-    # rows 140 - 143 taken from rows 11 - 14 of gbrough Battleship. See README.md Credits
+    # rows 173 - 176 taken from rows 11 - 14 of gbrough Battleship.
+    # See README.md Credits
     row_num = 1
     for row in board:
         print("%d | %s |" % (row_num, " | ".join(row)))
@@ -170,7 +187,8 @@ def create_ships(board):
     """
     This function creates the invading ships
     """
-    # rows 157 - 163 amended from rows 27 - 32 of gbrough Battleship. See README.md Credits
+    # rows 192 - 198 amended from rows 27 - 32 of gbrough Battleship.
+    # See README.md Credits
     for ship in range(invaders):
         ship_row = randint(0, grid_size - 1)
         ship_column = randint(0, grid_size - 1)
@@ -195,9 +213,11 @@ def ship_location():
             break
         else:
             print("Please enter a valid row")
- 
+
     while True:
-        column_choice = input(f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper()
+        column_choice = input(
+            f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper(
+            )
         if column_choice in columns_string:
             break
         else:
@@ -210,7 +230,8 @@ def ship_hits(board):
     """
     This counts the number of ships that were hit
     """
-    # rows 195 - 200 taken from rows 46 - 52 of gbrough Battleship. See README.md Credits
+    # rows 235 - 240 taken from rows 46 - 52 of gbrough Battleship.
+    # See README.md Credits
     hits = 0
     for row in board:
         for column in row:
@@ -258,7 +279,8 @@ def play_game():
     enemy_board = second_board(grid_size)
     player_guess_board = second_board(grid_size)
 
-    # rows 242 - 267 amended from rows 55 - 76 of gbrough Battleship. See README.md Credits
+    # rows 284 - 312 amended from rows 55 - 76 of gbrough Battleship.
+    # See README.md Credits
     create_ships(enemy_board)
     while missiles > 0:
         create_board(player_guess_board)
@@ -269,7 +291,10 @@ def play_game():
         elif enemy_board[row][column] == "X":
             print("\n<====>  DIRECT HIT!  <====>\n")
             print("\nYou hit one of their battleships!\n")
-            print(f"Enemy ships remaining: {str(invaders - 1 - ship_hits(player_guess_board))}")
+            print(
+                f"Enemy ships remaining: 
+                {str(invaders - 1 - ship_hits(player_guess_board))}"
+                )
             sleep(3)
             player_guess_board[row][column] = "X"
             missiles -= 1
@@ -297,7 +322,3 @@ def main():
     play_game()
 
 main()
-
-
-
-
