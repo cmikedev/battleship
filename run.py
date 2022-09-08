@@ -2,9 +2,9 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a":[4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]} # key = difficulty level, values = board squares, enemy ships, missiles
-letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9, "K": 10}
-letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
+difficulty_level = {"a": [4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]}
+letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 line_break = "\n" + str("-" * 80) + "\n"
 enemy_ships = 0
 
@@ -36,7 +36,7 @@ def continue_key():
             return clear_screen()
         else:
             print("Nope, please press 'c' and hit return to continue")
-    
+
 def introduction():
     """
     This gives the user a brief background story
@@ -111,7 +111,7 @@ def difficulty():
             return difficulty_chosen
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b', 'c' or 'd'")
-        
+
 def create_board(board):
     """
     Creates the board with the grid-size determined by the difficulty level
@@ -177,14 +177,14 @@ def ship_location():
             break
         else:
             print("Please enter a valid row")
-        
+   
     while True:
         column_choice = input(f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper()
         if column_choice in columns_string:
             break
         else:
             print("Please enter a valid column")
-    
+
     return int(row_choice) - 1, letters_legend[column_choice]
 
 def ship_hits(board):
@@ -265,7 +265,7 @@ def play_game():
         if missiles == 0:
             game_lost()
             break
-    
+
 def main():
     """
     Run all program functions
@@ -274,8 +274,9 @@ def main():
     instructions()
     difficulty()
     play_game()
-    
+  
 main()
+
 
 
 
