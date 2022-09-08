@@ -5,7 +5,7 @@ Battleship is a python version of the classic turn-based guess game. The intenti
 ____
 
 
-![image]()</br >
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/am-i-responsive.png?raw=true)</br >
 </br >
 Image created using [Am I responsive](https://ui.dev/amiresponsive)
 
@@ -62,7 +62,7 @@ https://github.com/cmikedev/battleship
     * A choice is offered between manual or automatic deployment whereby the app is updated when changes are pushed to GitHub. For this app automatic was selected.
     * Once the deployment method has been chosen the app will be built and can be launched by clicking the <mark style="background-color: grey">Open app</mark> button at the top of the page.<br />
     <br />
-![image]()
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/heroku-deployment.png?raw=true)
 
 
 
