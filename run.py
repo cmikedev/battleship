@@ -2,8 +2,14 @@ import os
 from time import sleep
 from random import randint
 
-difficulty_level = {"a": [4, 2, 12], "b": [6, 4, 20], "c": [8, 8, 36], "d": [9, 12, 40]}
-letters_legend = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
+difficulty_level = {
+    "a": [4, 2, 12], "b": [6, 4, 20], 
+    "c": [8, 8, 36], "d": [9, 12, 40]
+    }
+letters_legend = {
+    "A": 0, "B": 1, "C": 2, "D": 3, "E": 4, 
+    "F": 5, "G": 6, "H": 7, "I": 8, "J": 9
+    }
 letters_used = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 line_break = "\n" + str("-" * 80) + "\n"
 enemy_ships = 0
@@ -48,7 +54,11 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!\n",
-        "The enemy forces are equipped with the latest cloaking technology making them \ninvisible to our radars. Luckily our gunnar engineers are able to draw up grid \nmaps on the fly to assist us in aiming our shells. As the gunnar who has won on \nmore scratch cards than any other you have been chosen to fire blindly into \nthe sea and hopefully destroy the enemy fleet.",
+        "The enemy forces are equipped with the latest cloaking technology making them \n\
+            invisible to our radars. Luckily our gunnar engineers are able to draw up grid \n\
+                maps on the fly to assist us in aiming our shells. As the gunnar who has won on \n\
+                    more scratch cards than any other you have been chosen to fire blindly into \n\
+                        the sea and hopefully destroy the enemy fleet.",
         "\nCongratulations!\n"
     ]
     title()
@@ -185,7 +195,7 @@ def ship_location():
             break
         else:
             print("Please enter a valid row")
-   
+ 
     while True:
         column_choice = input(f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper()
         if column_choice in columns_string:
@@ -285,7 +295,7 @@ def main():
     instructions()
     difficulty()
     play_game()
-  
+
 main()
 
 
