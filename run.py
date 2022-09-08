@@ -289,9 +289,9 @@ def play_game():
         elif enemy_board[row][column] == "X":
             print("\n<====>  DIRECT HIT!  <====>\n")
             print("\nYou hit one of their battleships!\n")
-            print(f"Enemy ships remaining: 
-                {str(invaders - 1 - ship_hits(player_guess_board))}"
-                )
+            #print(f"Enemy ships remaining: {str(invaders - 1 - ship_hits(player_guess_board))}")
+            invaders_remaining = invaders - 1 - ship_hits(player_guess_board)
+            print("Enemy ships remaining: " + str(invaders_remaining))
             sleep(3)
             player_guess_board[row][column] = "X"
             missiles -= 1
