@@ -3,7 +3,7 @@ from time import sleep
 from random import randint
 
 difficulty_level = {
-    "a": [3, 2, 9], "b": [6, 4, 20],
+    "a": [4, 2, 12], "b": [6, 4, 20],
     "c": [8, 8, 36], "d": [9, 12, 40]
     }
 letters_legend = {
