@@ -16,6 +16,7 @@ def title():
     print("<====>  BATTLESHIP!  <====>\n")
     sleep(1)
 
+
 def clear_screen():
     """
     This function clears the screen based on the users operating system
@@ -24,6 +25,7 @@ def clear_screen():
         os.system("clear")
     else:
         os.system("clr")
+
 
 def continue_key():
     """
@@ -36,6 +38,7 @@ def continue_key():
             return clear_screen()
         else:
             print("Nope, please press 'c' and hit return to continue")
+
 
 def introduction():
     """
@@ -54,6 +57,7 @@ def introduction():
     for i in intro:
         print(i)
     continue_key()
+
 
 def instructions():
     """
@@ -78,6 +82,7 @@ def instructions():
     sleep(2)
     print("Are you ready? (don't worry we'll show you the instructions again)\n")
     continue_key()
+
 
 def difficulty():
     """
@@ -111,6 +116,7 @@ def difficulty():
             return difficulty_chosen
         else:
             print("Invalid choice! Please select the difficulty by entering 'a', 'b', 'c' or 'd'")
+
 
 def create_board(board):
     """
@@ -149,6 +155,7 @@ def create_board(board):
         print(f"Missiles Remaining: {str(missiles)}")
     print("")
 
+
 def create_ships(board):
     """
     This function creates the invading ships
@@ -161,6 +168,7 @@ def create_ships(board):
             ship_row = randint(0, grid_size - 1)
             ship_column = randint(0, grid_size - 1)
         board[ship_row][ship_column] = "X"
+
 
 def ship_location():
     """
@@ -187,6 +195,7 @@ def ship_location():
 
     return int(row_choice) - 1, letters_legend[column_choice]
 
+
 def ship_hits(board):
     """
     This counts the number of ships that were hit
@@ -198,6 +207,7 @@ def ship_hits(board):
             if column == "X":
                 hits += 1
     return hits
+
 
 def play_game():
     """
@@ -265,6 +275,7 @@ def play_game():
         if missiles == 0:
             game_lost()
             break
+
 
 def main():
     """
