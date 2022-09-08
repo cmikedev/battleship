@@ -263,7 +263,7 @@ def play_game():
         """
         clear_screen()
         title()
-        print("You have sunk the invading fleet!\n")
+        print("\nYou have sunk the invading fleet!\n")
         print("\n<====>    VICTORY!   <====>\n")
 
     def second_board(size):
