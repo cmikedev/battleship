@@ -54,7 +54,7 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!/n",
-        "The enemy forces are equipped with the latest" + 
+        "The enemy forces are equipped with the latest" +
         "cloaking technology making them invisible to our radars. " +
         "Luckily our gunnar engineers are able to draw up " +
         "grid maps on the fly to assist us in aiming our shells. " +
@@ -289,8 +289,7 @@ def play_game():
         elif enemy_board[row][column] == "X":
             print("\n<====>  DIRECT HIT!  <====>\n")
             print("\nYou hit one of their battleships!\n")
-            print(
-                f"Enemy ships remaining: 
+            print(f"Enemy ships remaining: 
                 {str(invaders - 1 - ship_hits(player_guess_board))}"
                 )
             sleep(3)
