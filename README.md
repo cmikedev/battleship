@@ -1,35 +1,56 @@
 # Battleship
-Battleship is a python version of the classic turn-based guess game. The intention of this [site](https://battleship-cmikedev.herokuapp.com/) is to provide a player with a simple and intuitive interface. 
+Battleship is a single-player python version of the classic turn-based guess game.</br >
+</br > 
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/am-i-responsive.png?raw=true)</br >
+</br >
+Image created using [Am I responsive](https://ui.dev/amiresponsive)</br >
+</br >
+
+### Deployed Website
+A link to the deployed project via the Heroku app can be found [here](https://battleship-cmikedev.herokuapp.com/).
+
+
+### Repository
+The GitHub repository can be found [here](https://github.com/cmikedev/battleship).
 
 
 ____
 
 
-![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/am-i-responsive.png?raw=true)</br >
-</br >
-Image created using [Am I responsive](https://ui.dev/amiresponsive)
 
-
-## Deployed Website
-[Battleship](https://battleship-cmikedev.herokuapp.com/)
-
-
-## Repository
-https://github.com/cmikedev/battleship
-
-
-
-## Structure
+## Design
 
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)
 
 
-
-
 ## Features
 
-* #
+### The Introduction Screen
+When the page loads the user is presented with an introduction providing a brief background story. The purpose of this is to provide a sense of immersion in the game.
+* The text loading is staggered in order to make it look like the user is awaiting receipt of a message from fleet Command. This is done to create a further sense of immersion by linking the user with an imaginery third party, a Fleet Command.</br >
+</br >
 
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/introduction.png?raw=true)</br >
+</br >
+
+* The user is then provided with a prompt move on to the next screen allowing them as much time as is required to read the introduction screen.</br >
+</br >
+
+### The Instructions Screen
+* The game instructions are laid out for the user. Again, they will be provided with a prompt to move onto the next screen in their own time.
+* The user will not need to come back to this screen as simplified instructions will be provided on the game screen.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/instructions.png?raw=true)</br >
+</br >
+
+### The Difficulty Screen
+* The Difficulty Screen provides the user the opportunity to provide input into the game. The four difficuly levels are explained and the user is prompted to choose.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/difficulty.png?raw=true)</br >
+</br >
 
 ## Testing
 
