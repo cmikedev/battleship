@@ -121,6 +121,9 @@ The [PEP8 Online](http://pep8online.com/) validator provided visibility for any 
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/pep8-result.png?raw=true)</br >
 </br >
 
+### 3.3 Bugs
+All identified bugs have been fixed including the example shown in section 3.1 above.</br >
+</br >
 
 
 ## 4. Deployment
@@ -139,7 +142,25 @@ The [PEP8 Online](http://pep8online.com/) validator provided visibility for any 
     * A choice is offered between manual or automatic deployment whereby the app is updated when changes are pushed to GitHub. For this app automatic was selected.
     * Once the deployment method has been chosen the app will be built and can be launched by clicking the <mark style="background-color: grey">Open app</mark> button at the top of the page.<br />
     <br />
-![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/heroku-deployment.png?raw=true)
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/heroku-deployment.png?raw=true)</br >
+</br >
+
+### 4.2 GitHub
+#### Forking the repository
+* The GitHub repository can be forked to make a copy of the original. This copy can then be viewed or changed without affecting the original repository via the following steps:
+    * In the Respository section, select the [battleship](https://github.com/cmikedev/battleship) repository
+    * At the top right of the page select <mark style="background-color: grey">fork</mark> from the menu below your profile
+    * A copy of the repository will now be created in your account
+
+#### Creating a local clone
+* To create a local clone via GitHub:
+    * In the Respository section, select the [battleship](https://github.com/cmikedev/battleship) repository
+    * From the horizontal menu above the repository contents select <mark style="background-color: grey">Code</mark>
+    * __Copy__ the link that that is shown
+    * Within __Gitpod__ change the directory to where you would like the location of the cloned directory to be
+    * Type __git clone__ and paste the link that you copied
+    * Press <mark style="background-color: grey">Enter</mark> and the local clone will be created<br />
+    <br />
 
 
 
