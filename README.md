@@ -19,14 +19,14 @@ ____
 
 
 
-## Design
+## 1. Design
 
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)
 
 
-## Features
+## 2. Features
 
-### The Introduction Screen
+### 2.1 The Introduction Screen
 When the page loads the user is presented with an introduction providing a brief background story. The purpose of this is to provide a sense of immersion in the game.
 * The text loading is staggered in order to make it look like the user is awaiting receipt of a message from fleet Command. This is done to create a further sense of immersion by linking the user with an imaginery third party, a Fleet Command.</br >
 </br >
@@ -37,7 +37,7 @@ When the page loads the user is presented with an introduction providing a brief
 * The user is then provided with a prompt move on to the next screen allowing them as much time as is required to read the introduction screen.</br >
 </br >
 
-### The Instructions Screen
+### 2.2 The Instructions Screen
 * The game instructions are laid out for the user. Again, they will be provided with a prompt to move onto the next screen in their own time.
 * The user will not need to come back to this screen as simplified instructions will be provided on the game screen.</br >
 </br >
@@ -45,11 +45,40 @@ When the page loads the user is presented with an introduction providing a brief
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/instructions.png?raw=true)</br >
 </br >
 
-### The Difficulty Screen
+### 2.3 The Difficulty Screen
 * The Difficulty Screen provides the user the opportunity to provide input into the game. The four difficuly levels are explained and the user is prompted to choose.</br >
 </br >
 
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/difficulty.png?raw=true)</br >
+</br >
+
+* Depending on the difficulty level chosen, from 'Easy' to 'Insane', the board size will increase as will the number of enemy vessels. The number of missiles, while increasing in number, will either decrease proprotionately to the board size or remain the same (in the case of 'Medium' and 'Hard').</br >
+</br >
+
+### 2.4 The Game Board
+When the user has selected their desired difficulty level, the game board will be generated with its size corresponding to the diffficulty chosen.
+* The user is once again provided with instructions on how to play.
+* The game board grids are visualised (the image below shows a 9x9 grid as per 'Insane' difficulty level).
+* The number of enemy ships and the number destroyed will be displayed (again, based on difficulty level chosen).
+* The missiles (turns).</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/gameboard.png?raw=true)</br >
+</br >
+
+* The user is asked to input their guess by way of selected the numerical row and aphabetical column. These coordinates represent a place on the grid.
+* An enemy ship occupies one grid space. If the user's guess corresponds to the coordinates of the enemy ship, the enemy ship is destroyed.
+* The board will then be reprinted displaying an "X" in the grid where a ship was destroyed or a "-" to denote a miss.
+* The number of enemy ships and missiles remaining displays are then updated as the board reprints.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/ships-missiles-remaining.png?raw=true)</br >
+</br >
+
+* If the user has failed to destroy all ships by the time their missiles remaining reaches 5, the missiles remaining message will update to warn the user that they are running low on ammo.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/low-ammo-warning.png?raw=true)</br >
 </br >
 
 ## Testing
