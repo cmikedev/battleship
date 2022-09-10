@@ -31,7 +31,7 @@ When the page loads the user is presented with an introduction providing a brief
 * The text loading is staggered in order to make it look like the user is awaiting receipt of a message from fleet Command. This is done to create a further sense of immersion by linking the user with an imaginery third party, a Fleet Command.</br >
 </br >
 
-![image]()</br >
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/introduction.png?raw=true)</br >
 </br >
 
 * The user is then provided with a prompt move on to the next screen allowing them as much time as is required to read the introduction screen.</br >
@@ -80,6 +80,21 @@ When the user has selected their desired difficulty level, the game board will b
 
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/low-ammo-warning.png?raw=true)</br >
 </br >
+
+### 2.5 End Game
+The game can end one of two ways:
+* If the user destroys all of the enemy vessels before they run out of missiles they win the game. The game will end a new screen will load informing them of their victory.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/game-won.png?raw=true)</br >
+</br >
+
+* If the user runs out of missiles and there are still enemy vessels remaining, the lose the game. The game will end a new screen will load informing them of their defeat.</br >
+</br >
+
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/game-lost.png?raw=true)</br >
+</br >
+
 
 ## Testing
 
