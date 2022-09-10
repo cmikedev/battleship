@@ -96,24 +96,23 @@ The game can end one of two ways:
 </br >
 
 
-## Testing
+## 3. Testing
 
-### Responsiveness Testing
+### 3.1 General Testing
+During the development of the project, the code was tested manually.
 
-* to be included...<br />
-<br />
+### 3.2 PEP8 Testing
+The [PEP8 Online](http://pep8online.com/) validator provided visibility for any errors within the code. The initial validation run flagged numerous amber and red errors relating to whitespace, no lines after functions, missing parentheses and lines of code that were too long. Over the course of several more validation runs, these errors were eliminated and the code as it is shows no errors.</br >
+</br >
 
-### Validator Testing
-
-* #### PEP8
-    * HTML
-        * To be included<br />
-        <br />
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/pep8-result.png?raw=true)</br >
+</br >
 
 
-## Deployment
 
-### Deploying the repository via Heroku
+## 4. Deployment
+
+### 4.1 Deploying the repository via Heroku
 * The app was created using Heroku via the following steps:
     * On the https://dashboard.heroku.com/apps page, click <mark style="background-color: grey">New</mark> and then select <mark style="background-color: grey">Create New App</mark> from the drop-down menu.
     * When the next page loads insert the <mark style="background-color: grey">App name</mark> and <mark style="background-color: grey">Choose a region</mark>. The click <mark style="background-color: grey">Create app</mark>
@@ -132,9 +131,8 @@ The game can end one of two ways:
 
 
 
-## Credits
+## 5. Credits
 
-### Research and Guidance
 * [stackoverflow](https://stackoverflow.com/questions/60405812/can-you-put-a-operator-into-a-list-comprehension) was referenced for guidance on using operators within list comprehension.
 * [stackoverflow](https://stackoverflow.com/questions/68716514/python-sleep-function-not-working-as-expected) was referenced for guidance on the sleep function from the time import.
 * [scaler](https://www.scaler.com/topics/how-to-clear-screen-in-python/) provided a solution to the issue of clearing the board depending on whether the user's os was MAC, Windows or Linux.
@@ -147,5 +145,5 @@ The game can end one of two ways:
 
 ----
 
-## Acknowledgements
+## 6. Acknowledgements
 I would like to thank my course mentor Harry Dhillon for providing guidance on this project as well as Alysha Johnson for providing styling inspiration for the README.
