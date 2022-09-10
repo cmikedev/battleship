@@ -54,7 +54,7 @@ def introduction():
     intro = [
         "\nWarning!!!\n",
         "Enemy forces have invaded our waters!!!\n",
-        "The enemy forces are equipped with the latest" +
+        "The enemy forces are equipped with the latest " +
         "cloaking technology making them \ninvisible to our radars. " +
         "Luckily our gunnar engineers are able to draw up " +
         "grid \nmaps on the fly to assist us in aiming our shells. " +
