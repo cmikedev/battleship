@@ -31,7 +31,7 @@ When the page loads the user is presented with an introduction providing a brief
 * The text loading is staggered in order to make it look like the user is awaiting receipt of a message from fleet Command. This is done to create a further sense of immersion by linking the user with an imaginery third party, a Fleet Command.</br >
 </br >
 
-![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/introduction.png?raw=true)</br >
+![image]()</br >
 </br >
 
 * The user is then provided with a prompt move on to the next screen allowing them as much time as is required to read the introduction screen.</br >
