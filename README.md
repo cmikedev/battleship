@@ -99,7 +99,20 @@ The game can end one of two ways:
 ## 3. Testing
 
 ### 3.1 General Testing
-During the development of the project, the code was tested manually.
+During the development of the project, much of the functions were initially written using the [Replit Python Online Compiler](https://replit.com/lm/python3). This allowed for testing and editing of smaller sctions of code before they were added to the main file. Individual functions were tested in the main file through the GitPod terminal by adding them to a main function.</br >
+</br >
+
+![image]()</br >
+</br >
+
+This allowed for the entirety of the game running order to be tested or just individual functions. The majority of the errors returned during the testing stage related to items being out of range. There are two errors shown below:
+* The first, where a user is asked to please enter a ship row, allowed for the return key to be pressed.
+* The second, where a user is asked to enter a ship column throws up a <mark style="background-color: grey">ValueError</mark> when a return key is pressed.
+In both instances a message informing the user that their input was incorrect and prompting them to enter the correct input should have been returned.</br >
+</br >
+
+![image]()</br >
+</br >
 
 ### 3.2 PEP8 Testing
 The [PEP8 Online](http://pep8online.com/) validator provided visibility for any errors within the code. The initial validation run flagged numerous amber and red errors relating to whitespace, no lines after functions, missing parentheses and lines of code that were too long. Over the course of several more validation runs, these errors were eliminated and the code as it is shows no errors.</br >
