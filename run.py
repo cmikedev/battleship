@@ -208,7 +208,9 @@ def ship_location():
 
     while True:
         row_choice = input(f"Please enter a ship row 1-{grid_size}: ")
-        if row_choice in rows_string:
+        if len(row_choice) == 0:
+            print("Please enter a valid row")
+        elif row_choice in rows_string:
             break
         else:
             print("Please enter a valid row")
@@ -217,7 +219,9 @@ def ship_location():
         column_choice = input(
             f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper(
             )
-        if column_choice in columns_string:
+        if len(column_choice) == 0:
+            print("please enter a valid column")
+        elif column_choice in columns_string:
             break
         else:
             print("Please enter a valid column")
@@ -229,7 +233,7 @@ def ship_hits(board):
     """
     This counts the number of ships that were hit
     """
-    # lines 234 - 239 taken from lines 46 - 52 of gbrough Battleship.
+    # lines 238 - 243 taken from lines 46 - 52 of gbrough Battleship.
     # See README.md Credits
     hits = 0
     for row in board:
@@ -278,7 +282,7 @@ def play_game():
     enemy_board = second_board(grid_size)
     player_guess_board = second_board(grid_size)
 
-    # Lines 283 - 309 amended from lines 55 - 76 of gbrough Battleship.
+    # Lines 287 - 313 amended from lines 55 - 76 of gbrough Battleship.
     # See README.md Credits
     create_ships(enemy_board)
     while missiles > 0:
