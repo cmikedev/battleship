@@ -220,7 +220,7 @@ def ship_location():
             f"Please enter a column A-{letters_used[grid_size - 1]}: ").upper(
             )
         if len(column_choice) == 0:
-            print("please enter a valid column")
+            print("Please enter a valid column")
         elif column_choice in columns_string:
             break
         else:

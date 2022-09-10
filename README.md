@@ -21,8 +21,19 @@ ____
 
 ## 1. Design
 
-![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)
+![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)</br >
+</br>
 
+1. The user inputs their desired difficulty level.
+2. The gameboard's grid, enemy ships and the number of missiles are determined by the difficulty level selected.
+3. A gameboard of grid N x N is generated.
+4. The ships are generated and placed on the gameboard.
+5. When the user enters their row and column guess, a second gameboard is created (not visible to the user) which stores their guess.
+6. If the coordinates on the user gameboard matches those of the visible one, the gameboard reprints showing an "X" within the grid to denote a hit.
+7. If the coordinates don't match, the gameboard reprints showing a "-" to denote a miss.
+8. If the number of ships hit equals the number of ships generated and the number of missiles remaining is not equal to 0, then the user wins.
+9. If the number of ships hit is less than the number generated and the number of missiles is equal to 0, the user loses.</br >
+</br >
 
 ## 2. Features
 
