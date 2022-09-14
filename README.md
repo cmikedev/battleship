@@ -21,6 +21,8 @@ ____
 
 ## 1. Design
 
+### 1.1 Structure
+
 ![image](https://github.com/cmikedev/battleship/blob/main/assets/readme-images/battleship-flowchart.png?raw=true)</br >
 </br>
 
@@ -33,6 +35,11 @@ ____
 7. If the coordinates don't match, the gameboard reprints showing a "-" to denote a miss.
 8. If the number of ships hit equals the number of ships generated and the number of missiles remaining is not equal to 0, then the user wins.
 9. If the number of ships hit is less than the number generated and the number of missiles is equal to 0, the user loses.</br >
+</br >
+
+### 1.2 Modules Used
+* The __sleep__ function is imported from Python's [time](https://docs.python.org/3/library/time.html) module in order to stagger displayed text (see section 2.1) and create a delay before the running of selected loops.
+* The __randint__ function is imported from Python's [random](https://docs.python.org/3/library/random.html) module in order to randomly generate the position of the enemy ships on the game board.</br >
 </br >
 
 ## 2. Features

@@ -315,7 +315,7 @@ def play_game():
 
 def main():
     """
-    Run all program functions
+    Runs all program functions
     """
     introduction()
     instructions()
